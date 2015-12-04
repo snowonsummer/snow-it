@@ -24,7 +24,7 @@
 					minSize : 10,
 					maxSize : 20,
 					total : 25,
-					speed: 10,
+					speed: documentHeight / 105,
 					flakeColor : "#FFFFFF"
 			},
 			options = $.extend({}, defaults, options),
@@ -33,10 +33,12 @@
 			var flakes = function() {
 				var startPositionLeft = Math.random() * documentWidth - 250,
 					startPositionTop = 0 - (Math.random() * documentHeight - 40);
-					startOpacity = 0.5 * Math.random(),
+					startOpacity = 0.8 * Math.random(),
+					num = parseInt($('.lis-flake').length) + 1,
 					sizeFlake = options.minSize + Math.random() * options.maxSize;
 
 				$flake
+					.attr('num', num )
 					.clone()
 					.appendTo('body')
 					.css(
